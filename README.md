@@ -14,7 +14,14 @@ This project is a continuation of the assignments given during the course (assig
 The registration process has been modified, and instead of only having the user submit a username and password, he or she can also add information about name and contact, however this is not mandatory and can be edited after registration as well.
 
 ### Demo
-Available [here](http://ea222puproject.net76.net/).
+Available [here](http://ea222puproject.net76.net/).    
+Some accounts have already been created on the demo website:
+|Username      |Password      |Has additional info?      |
+|--------------|--------------|--------------------------|
+|emil          |password      |Yes                       |
+|josefine      |password      |Yes                       |
+|django        |password      |No                        |
+|sigge         |password      |No                        |
 
 ### Use cases
 Available [here](https://github.com/ea222pu/1DV608-Project/blob/master/USECASES.md).

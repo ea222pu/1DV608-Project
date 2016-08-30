@@ -35,9 +35,9 @@ class MainController implements iController {
 	private $layoutView;
 
 	/**
-	 * @var \view\SearchView $searchView
+	 * @var \view\SettingsView
 	 */
-	//private $searchView;
+	private $settingsView;
 
 	/**
 	 * @var \model\SearchModel $searchModel
@@ -63,8 +63,6 @@ class MainController implements iController {
 	 * @var boolean $renderMyProfile
 	 */
 	private $renderMyProfile;
-
-	private $settingsView;
 
 	/**
 	 * Constructor
@@ -151,7 +149,6 @@ class MainController implements iController {
 		}
 		// Ny: 24/8
 		else if($this->settingsView->saveButtonPost()) {
-			var_dump("Main controller -> listen: settingsView->saveButtonPost()");
 			$this->settingsController->saveChanges();
 			$this->renderRegView = false;
 			$this->renderSearchView = false;
@@ -159,17 +156,12 @@ class MainController implements iController {
 			$this->renderSettingsView = false;
 		}
 		else {
-			var_dump("Main controller -> listen: else");
 			$this->logCtrlr->listen();
 			$this->renderRegView = false;
 			$this->renderSearchView = false;
 			$this->renderMyProfile = false;
 			$this->renderSettingsView = false;
 		}
-	}
-
-	public function getViewToRender() {
-
 	}
 
 	/**

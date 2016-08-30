@@ -36,6 +36,10 @@ class SearchController implements iController {
 
 	}
 
+	/**
+	 * Search for user with name equal to or containing the term provided.
+	 * @param  String $searchTerm
+	 */
 	public function searchUser($searchTerm) {
 		$this->searchModel->searchUser($searchTerm);
 		if($this->searchModel->foundMatch()) {

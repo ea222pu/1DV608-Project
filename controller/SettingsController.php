@@ -45,6 +45,9 @@ class SettingsController implements iController {
 		}
 	}
 
+	/**
+	 * Save the new changes to the user's account.
+	 */
 	public function saveChanges() {
 		$name = $this->settingsView->getName();
 		$contact = $this->settingsView->getContact();
