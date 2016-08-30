@@ -19,7 +19,6 @@ class UserProfileController implements iController {
 	 * Handle user input
 	 */
 	public function listen() {
-
 	}
 
 	/**

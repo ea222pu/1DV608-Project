@@ -61,7 +61,6 @@ class LoginController implements iController {
 				$this->logView->setMsgWrongCookieInfo();
 			}
 		}
-
 	}
 
 	/**

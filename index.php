@@ -58,10 +58,9 @@ $userProfileController = new UserProfileController($userProfileView);
 $settingsController = new SettingsController($settingsView, $settingsModel);
 
 $mainController = new MainController($registerController, $loginController,
-	$searchController, $userProfileController, $settingsController, $layoutView);
+	$searchController, $userProfileController, $settingsController, $layoutView, $settingsView);
 
 $mainController->listen();
-
 
 // What view to render within LayoutView
 if($mainController->renderRegView()) {

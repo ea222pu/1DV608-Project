@@ -15,7 +15,7 @@ class SettingsController implements iController {
 	/**
 	 * @var boolean $renderProfileView
 	 */
-	private $renderProfileView;
+	private $renderProfileViewVar;
 
 	/**
 	 * Constructor
@@ -25,7 +25,7 @@ class SettingsController implements iController {
 	public function __construct(SettingsView $settingsView, SettingsModel $settingsModel) {
 		$this->settingsView = $settingsView;
 		$this->settingsModel = $settingsModel;
-		$this->renderProfileView = false;
+		$this->renderProfileViewVar = false;
 	}
 
 	/**
@@ -37,13 +37,18 @@ class SettingsController implements iController {
 		if($this->settingsView->saveButtonPost()) {
 			$name = $this->settingsView->getName();
 			$contact = $this->settingsView->getContact();
-
 			$this->settingsModel->updateUserProfile($name, $contact);
-			$this->renderProfileView = true;
+			$this->renderProfileViewVar = true;
 		}
 		else {
-			$this->renderProfileView = false;
+			$this->renderProfileViewVar = false;
 		}
+	}
+
+	public function saveChanges() {
+		$name = $this->settingsView->getName();
+		$contact = $this->settingsView->getContact();
+		$this->settingsModel->updateUserProfile($name, $contact);
 	}
 
 	/**
@@ -53,7 +58,7 @@ class SettingsController implements iController {
 	 * @return boolean
 	 */
 	public function renderProfileView() {
-		return $this->renderProfileView;
+		return $this->renderProfileViewVar;
 	}
 
 }

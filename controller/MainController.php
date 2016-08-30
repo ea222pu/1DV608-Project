@@ -37,7 +37,7 @@ class MainController implements iController {
 	/**
 	 * @var \view\SearchView $searchView
 	 */
-	private $searchView;
+	//private $searchView;
 
 	/**
 	 * @var \model\SearchModel $searchModel
@@ -64,6 +64,8 @@ class MainController implements iController {
 	 */
 	private $renderMyProfile;
 
+	private $settingsView;
+
 	/**
 	 * Constructor
 	 * @param \controller\RegisterController 	 $registerController
@@ -75,7 +77,7 @@ class MainController implements iController {
 	 */
 	public function __construct(RegisterController $registerController, LoginController $loginController,
 		SearchController $searchController, UserProfileController $userProfileController,
-		SettingsController $settingsController, LayoutView $layoutView) {
+		SettingsController $settingsController, LayoutView $layoutView, SettingsView $settingsView) {
 
 		$this->regCtrlr = $registerController;
 		$this->logCtrlr = $loginController;
@@ -83,6 +85,7 @@ class MainController implements iController {
 		$this->userProfileController = $userProfileController;
 		$this->settingsController = $settingsController;
 		$this->layoutView = $layoutView;
+		$this->settingsView = $settingsView;
 		$this->renderRegView = false;
 		$this->renderSeachView = false;
 		$this->renderMyProfile = false;
@@ -134,7 +137,9 @@ class MainController implements iController {
 			$this->renderMyProfile = false;
 			$this->renderRegView = false;
 			$this->renderSearchView = false;
+			/*
 			if($this->settingsController->renderProfileView()) {
+				var_dump("Profile from settings (nested)");
 				$this->userProfileController->setUserProfile(null);
 				$this->userProfileController->listen();
 				$this->renderMyProfile = true;
@@ -142,15 +147,29 @@ class MainController implements iController {
 				$this->renderSearchView = false;
 				$this->renderSettingsView = false;
 			}
+			*/
 		}
-		else {
-			$this->logCtrlr->listen();
-
+		// Ny: 24/8
+		else if($this->settingsView->saveButtonPost()) {
+			var_dump("Main controller -> listen: settingsView->saveButtonPost()");
+			$this->settingsController->saveChanges();
 			$this->renderRegView = false;
 			$this->renderSearchView = false;
 			$this->renderMyProfile = false;
 			$this->renderSettingsView = false;
 		}
+		else {
+			var_dump("Main controller -> listen: else");
+			$this->logCtrlr->listen();
+			$this->renderRegView = false;
+			$this->renderSearchView = false;
+			$this->renderMyProfile = false;
+			$this->renderSettingsView = false;
+		}
+	}
+
+	public function getViewToRender() {
+
 	}
 
 	/**
