@@ -16,12 +16,12 @@ The registration process has been modified, and instead of only having the user 
 ### Demo
 Available [here](http://ea222puproject.net76.net/).    
 Some accounts have already been created on the demo website:
-|Username      |Password      |Has additional info?      |
-| ------------ | ------------ | ------------------------ |
-|emil          |password      |Yes                       |
-|josefine      |password      |Yes                       |
-|django        |password      |No                        |
-|sigge         |password      |No                        |
+|Username      |Password      |Has additional info?      |  
+| ------------ | ------------ | ------------------------ |  
+|emil          |password      |Yes                       |  
+|josefine      |password      |Yes                       |  
+|django        |password      |No                        |  
+|sigge         |password      |No                        |  
 
 ### Use cases
 Available [here](https://github.com/ea222pu/1DV608-Project/blob/master/USECASES.md).
